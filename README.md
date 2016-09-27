@@ -1,13 +1,12 @@
 #Germania Favicons
 
-**Get your favicons in line with Twig and Slim2 Framework**
+**Get your favicons in line with Twig and Slim3 Framework**
 
-Author's note: I developed this package for streamlining the favicons setup for each our company websites. In this first release, the routing classes will require [Slim Framework Version 2](http://docs.slimframework.com/). The current [Slim Framework v3](http://www.slimframework.com/) will we taken into account with next major v3 release.
 
 ##Installation with Composer
 
 ```bash
-$ composer require germania-kg/favicons:^2.0
+$ composer require germania-kg/favicons:^3.0
 ```
 
 ##Where are the templates? The Favicons class
@@ -79,14 +78,17 @@ This will output a bunch of link and meta elements similar to this:
 
 ##Routing browserconfig and manifest files
 
-###Simple Slim 2 example:
+###Simple Slim 3 example:
 
 ```php
 <?php
 use Germania\Favicons\SlimRouter;
+use Slim\App;
+use Twig_Environment;
 
-// Have your Slim v2 app ready
-$app = new Slim;
+// Have your Slim v3 app and Twig ready
+$app  = new App;
+$twig = new Twig_Environment( ... );
 
 // Setup favicon data
 $favicon_data = [
@@ -110,16 +112,23 @@ This may be useful when you want to use your own templates:
 // Have your Slim app and favicon data ready
 $favicon_data = [ ... ];
 
-$app->get('/browserconfig.xml', function() use ( $app, $twig, $favicon_data ) {
-    $app->response->headers->set('Content-Type', 'application/xml');
+$app->get('/browserconfig.xml', function (Request $request, Response $response) {
     $output = $twig->render('favicons.browserconfig.xml.tpl', $favicon_data);
-    $app->response->setBody( $output );
+
+    $newResponse = $response->withHeader('Content-type', 'application/xml');
+    $newResponse->getBody()->write($output);
+
+    return $newResponse;
 });
 
-$app->get('/manifest.json', function() use ( $app, $twig, $favicon_data ) {
-    $app->response->headers->set('Content-Type', 'application/manifest+json');
+
+$app->get('/manifest.json', function (Request $request, Response $response) {
     $output = $twig->render('favicons.manifest.json.tpl', $favicon_data);
-    $app->response->setBody( $output );
+
+    $newResponse = $response->withHeader('Content-type', 'application/manifest+json');
+    $newResponse->getBody()->write($output);
+
+    return $newResponse;
 });
 ```
 
