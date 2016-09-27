@@ -4,7 +4,7 @@ namespace Germania\Favicons;
 use Slim\Slim;
 use Twig_Environment;
 
-class Slim2Router
+class SlimRouter
 {
     public function __construct( Slim $app, Twig_Environment $twig, $favicon_data)
     {

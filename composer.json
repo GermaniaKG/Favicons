@@ -1,5 +1,6 @@
 {
 	"name": "germania-kg/favicons",
+	"description": "Get your Favicons in line with Twig and Slim",
 
 	"authors": [
 		{
@@ -16,7 +17,7 @@
 	},
 
 	"require": {
-		"slim/slim": ">=2.4",
+		"slim/slim": "^2.4",
 		"twig/twig": "^1.16"
 	},
 

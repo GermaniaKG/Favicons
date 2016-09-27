@@ -1,8 +1,8 @@
-#Germania\Favicons
+#Germania Favicons
 
-**Get your favicons in line with Twig and Slim Framework**
+**Get your favicons in line with Twig and Slim2 Framework**
 
-
+Author's note: I developed this package for streamlining the favicons setup for each our company websites. In this first release, the routing classes will require [Slim Framework Version 2](http://docs.slimframework.com/). The current [Slim Framework v3](http://www.slimframework.com/) will we taken into account with next major v3 release.
 
 
 ##Where are the templates? The Favicons class
@@ -78,9 +78,9 @@ This will output a bunch of link and meta elements similar to this:
 
 ```php
 <?php
-use Germania\Favicons\FaviconRouter;
+use Germania\Favicons\SlimRouter;
 
-// Have your Slim app ready
+// Have your Slim v2 app ready
 $app = new Slim;
 
 // Setup favicon data
@@ -93,7 +93,7 @@ $favicon_data = [
 ];
 
 // Setup routes 
-new FaviconRouter( $app, $twig, $favicon_data);
+new SlimRouter( $app, $twig, $favicon_data);
 
 ```
 
@@ -126,10 +126,34 @@ It seems that Safari will ignore any new color after a pinned tab icon has been 
 <link rel="mask-icon" href="/path/to/static/safari-pinned-tab.svg" color="#e21e79">
 ```
 
-Force safari by emptying the Icon Folder in `"~/Library/Safari/Template Icons"`. See Jonathan Hollin's article [Managing Safari 9’s Pinned-tab Icon Cache](https://www.perpetual-beta.org/weblog/managing-safari-9s-pinned-tab-cache.html). It basically goes like this:
+**On OS X,** force safari by emptying the Icon Folder in `"~/Library/Safari/Template Icons"`. See Jonathan Hollin's article [Managing Safari 9’s Pinned-tab Icon Cache](https://www.perpetual-beta.org/weblog/managing-safari-9s-pinned-tab-cache.html). It basically goes like this:
 
 ```bash
 rm ~/Library/Safari/Template\ Icons/*
 ```
+
+#Development
+
+Clone the repo, install dependencies
+
+```bash
+$ git clone git@github.com:GermaniaKG/Favicons.git germania-favicons
+$ cd germania-favicons
+$ composer install
+$ cp phpunit.xml.dist phpunit.xml
+```
+
+Customize `phpunit.xml` and run tests:
+
+```bash
+$ phpunit
+```
+
+###Todo
+- Write Test for the Slim2 router
+
+
+
+
 
 
