@@ -77,9 +77,9 @@ This will output a bunch of link and meta elements similar to this:
 
 ```php
 <?php
-use Germania\Favicons\FaviconRouter;
+use Germania\Favicons\SlimRouter;
 
-// Have your Slim app ready
+// Have your Slim v2 app ready
 $app = new Slim;
 
 // Setup favicon data
@@ -92,7 +92,7 @@ $favicon_data = [
 ];
 
 // Setup routes 
-new FaviconRouter( $app, $twig, $favicon_data);
+new SlimRouter( $app, $twig, $favicon_data);
 
 ```
 
