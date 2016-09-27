@@ -3,8 +3,6 @@
 **Get your favicons in line with Twig and Slim Framework**
 
 
-
-
 ##Where are the templates? The Favicons class
 The only purpose of this class is to make the Twig templates that come with this package somehow “installable” with Composer (sort of). Grab the path with the `getTemplatesPath` method. You will need it to setup your template loader. 
 
@@ -131,5 +129,28 @@ It seems that Safari will ignore any new color after a pinned tab icon has been 
 ```bash
 rm ~/Library/Safari/Template\ Icons/*
 ```
+
+#Development
+
+Clone the repo, install dependencies
+
+```bash
+$ git clone git@github.com:GermaniaKG/Favicons.git germania-favicons
+$ cd germania-favicons
+$ composer install
+$ cp phpunit.xml.dist phpunit.xml
+```
+
+Customize `phpunit.xml` and run tests:
+
+```bash
+$ phpunit
+```
+
+
+
+
+
+
 
 
