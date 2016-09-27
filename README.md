@@ -52,22 +52,23 @@ Inside your website template that renders your HTML head, include the Favicons M
    'app_url':     '/app', 
    'base_url':    '/path/to/static', 
    'theme_color': '#ffffff',
-   'icon_color':  '#e21e79'
+   'icon_color':  '#e21e79',
+   'cache_bust':  '134p38rfwef'
 } only %}
 ```
 
-This will output a bunch of link and meta elements similar to this:
+The *cache_bust* variable is optional. However, this will output a bunch of link and meta elements similar to this:
 
 ```html
-<link rel="apple-touch-icon" sizes="180x180" href="/path/to/static/apple-touch-icon.png">
-<link rel="icon" type="image/png" href="/path/to/static/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/path/to/static/favicon-16x16.png" sizes="16x16">
-<link rel="manifest" href="/app/manifest.json">
-<link rel="mask-icon" href="/path/to/static/safari-pinned-tab.svg" color="#e21e79">
-<link rel="shortcut icon" href="/path/to/static/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/path/to/static/apple-touch-icon.png?v=134p38rfwef">
+<link rel="icon" type="image/png" href="/path/to/static/favicon-32x32.png?v=134p38rfwef" sizes="32x32">
+<link rel="icon" type="image/png" href="/path/to/static/favicon-16x16.png?v=134p38rfwef" sizes="16x16">
+<link rel="manifest" href="/app/manifest.json?v=134p38rfwef">
+<link rel="mask-icon" href="/path/to/static/safari-pinned-tab.svg?v=134p38rfwef" color="#e21e79">
+<link rel="shortcut icon" href="/path/to/static/favicon.ico?v=134p38rfwef">
 <meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="/path/to/static/mstile-144x144.png">
-<meta name="msapplication-config" content="/app/browserconfig.xml">
+<meta name="msapplication-TileImage" content="/path/to/static/mstile-144x144.png?v=134p38rfwef">
+<meta name="msapplication-config" content="/app/browserconfig.xml?v=134p38rfwef">
 <meta name="theme-color" content="#ffffff">
 ```
 
@@ -96,7 +97,9 @@ $favicon_data = [
 	'base_url'    => '/path/to/icons',
 	'theme_color' => '#ffffff',
 	'icon_color'  => '#e21e79'
-	'display'     => 'minimal-ui'
+	'display'     => 'minimal-ui',
+	// This is optional
+	'cache_bust'  => '134p38rfwef'
 ];
 
 // Setup routes 
@@ -109,10 +112,10 @@ This may be useful when you want to use your own templates:
 
 ```php
 <?php
-// Have your Slim app and favicon data ready
+// Have your Slim app, Twig and favicon data ready
 $favicon_data = [ ... ];
 
-$app->get('/browserconfig.xml', function (Request $request, Response $response) {
+$app->get('/browserconfig.xml', function (Request $request, Response $response) use ($twig, $favicon_data) {
     $output = $twig->render('favicons.browserconfig.xml.tpl', $favicon_data);
 
     $newResponse = $response->withHeader('Content-type', 'application/xml');
@@ -122,7 +125,7 @@ $app->get('/browserconfig.xml', function (Request $request, Response $response) 
 });
 
 
-$app->get('/manifest.json', function (Request $request, Response $response) {
+$app->get('/manifest.json', function (Request $request, Response $response) use ($twig, $favicon_data) {
     $output = $twig->render('favicons.manifest.json.tpl', $favicon_data);
 
     $newResponse = $response->withHeader('Content-type', 'application/manifest+json');
