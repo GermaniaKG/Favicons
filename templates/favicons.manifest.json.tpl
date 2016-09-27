@@ -22,16 +22,17 @@ Element documentation:
 - theme_color: https://developer.mozilla.org/en-US/docs/Web/Manifest#theme_color
 
 ================================================================= #}
+{% set cache_bust_param = cache_bust ? "?v=" ~ cache_bust : "" %}
 {
 	"name": "{{ app_name }}",
 	"icons": [
 		{
-			"src": "{{ base_url|escape }}\/android-chrome-192x192.png",
+			"src": "{{ base_url|escape }}\/android-chrome-192x192.png{{ cache_bust_param }}",
 			"sizes": "192x192",
 			"type": "image\/png"
 		},
 		{
-			"src": "{{ base_url|escape }}\/android-chrome-512x512.png",
+			"src": "{{ base_url|escape }}\/android-chrome-512x512.png{{ cache_bust_param }}",
 			"sizes": "512x512",
 			"type": "image\/png"
 		}
