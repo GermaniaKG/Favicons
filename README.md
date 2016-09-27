@@ -154,9 +154,8 @@ Customize `phpunit.xml` and run tests:
 $ phpunit
 ```
 
-###Todo
-- Write Test for the Slim2 router
-
+###Todo: Make SlimRouterTest perfect
+There is a *SlimRouterTest* class, but it does not more than creating a *SlimRouter* instance, using concrete Slim and Twig_Environment constructor parameters. For I do not know how to check if the Slim routing actually works, this test will be content if SlimRouter instantiation does not throw any error.
 
 
 
