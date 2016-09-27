@@ -2,6 +2,7 @@
 
 **Get your favicons in line with Twig and Slim Framework**
 
+Author's note: I developed this package for streamlining the Favicons setup for every website of my company. In the first release, the routing classes will require [Slim Framework Version 2](http://docs.slimframework.com/). The current [Slim Framework v3](http://www.slimframework.com/) will we part of next major release.
 
 ##Where are the templates? The Favicons class
 The only purpose of this class is to make the Twig templates that come with this package somehow “installable” with Composer (sort of). Grab the path with the `getTemplatesPath` method. You will need it to setup your template loader. 
