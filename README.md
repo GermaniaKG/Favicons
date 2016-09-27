@@ -1,8 +1,9 @@
-#Germania\Favicons
+#Germania Favicons
 
-**Get your favicons in line with Twig and Slim Framework**
+**Get your favicons in line with Twig and Slim2 Framework**
 
-Author's note: I developed this package for streamlining the Favicons setup for every website of my company. In the first release, the routing classes will require [Slim Framework Version 2](http://docs.slimframework.com/). The current [Slim Framework v3](http://www.slimframework.com/) will we part of next major release.
+Author's note: I developed this package for streamlining the favicons setup for each our company websites. In this first release, the routing classes will require [Slim Framework Version 2](http://docs.slimframework.com/). The current [Slim Framework v3](http://www.slimframework.com/) will we taken into account with next major v3 release.
+
 
 ##Where are the templates? The Favicons class
 The only purpose of this class is to make the Twig templates that come with this package somehow “installable” with Composer (sort of). Grab the path with the `getTemplatesPath` method. You will need it to setup your template loader. 
@@ -148,7 +149,8 @@ Customize `phpunit.xml` and run tests:
 $ phpunit
 ```
 
-
+###Todo
+- Write Test for the Slim2 router
 
 
 
