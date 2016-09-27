@@ -4,6 +4,11 @@
 
 Author's note: I developed this package for streamlining the favicons setup for each our company websites. In this first release, the routing classes will require [Slim Framework Version 2](http://docs.slimframework.com/). The current [Slim Framework v3](http://www.slimframework.com/) will we taken into account with next major v3 release.
 
+##Installation with Composer
+
+```bash
+$ composer require germania-kg/favicons:^2.0
+```
 
 ##Where are the templates? The Favicons class
 The only purpose of this class is to make the Twig templates that come with this package somehow “installable” with Composer (sort of). Grab the path with the `getTemplatesPath` method. You will need it to setup your template loader. 
