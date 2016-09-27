@@ -126,7 +126,7 @@ It seems that Safari will ignore any new color after a pinned tab icon has been 
 <link rel="mask-icon" href="/path/to/static/safari-pinned-tab.svg" color="#e21e79">
 ```
 
-Force safari by emptying the Icon Folder in `"~/Library/Safari/Template Icons"`. See Jonathan Hollin's article [Managing Safari 9’s Pinned-tab Icon Cache](https://www.perpetual-beta.org/weblog/managing-safari-9s-pinned-tab-cache.html). It basically goes like this:
+**On OS X,** force safari by emptying the Icon Folder in `"~/Library/Safari/Template Icons"`. See Jonathan Hollin's article [Managing Safari 9’s Pinned-tab Icon Cache](https://www.perpetual-beta.org/weblog/managing-safari-9s-pinned-tab-cache.html). It basically goes like this:
 
 ```bash
 rm ~/Library/Safari/Template\ Icons/*
