@@ -12,7 +12,7 @@ class SlimRouterTest extends \PHPUnit_Framework_TestCase
     public function testSimpleInstantiation() {
 
         $twig = new Twig_Environment();
-        $slim = new \Slim\Slim;
+        $slim = new \Slim\App;
 
         $favicon_data = [];
         $sut = new SlimRouter( $slim, $twig, $favicon_data);
