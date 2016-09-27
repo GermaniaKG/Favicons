@@ -1,0 +1,28 @@
+{
+	"name": "germania-kg/favicons",
+
+	"authors": [
+		{
+			"name":  "Carsten Witt",
+			"email": "carstenwitt@germania-kg.de",
+			"role":  "Developer"
+		}
+	],
+
+	"autoload": {
+		"psr-4": {
+			"Germania\\Favicons\\": "src"
+		}
+	},
+
+	"require": {
+		"slim/slim": ">=2.4",
+		"twig/twig": "^1.16"
+	},
+
+	"require-dev": {
+			"satooshi/php-coveralls": "^1.0",
+			"phpunit/phpunit": "^5.2"
+	}
+
+}
