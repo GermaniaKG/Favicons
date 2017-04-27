@@ -1,15 +1,15 @@
-#Germania Favicons
+# Germania Favicons
 
 **Get your favicons in line with Twig and Slim3 Framework**
 
 
-##Installation with Composer
+## Installation with Composer
 
 ```bash
 $ composer require germania-kg/favicons:^3.0
 ```
 
-##Where are the templates? The Favicons class
+## Where are the templates? The Favicons class
 The only purpose of this class is to make the Twig templates that come with this package somehow “installable” with Composer (sort of). Grab the path with the `getTemplatesPath` method. You will need it to setup your template loader. 
 
 ```php
@@ -22,7 +22,7 @@ echo $favicons->getTemplatesPath();
 ```
 
 
-##Setup Twig Template Loader
+## Setup Twig Template Loader
 
 Setup a `Favicons` object and add its template path to your Twig template loader:
 
@@ -43,7 +43,7 @@ $twig = new Twig_Environment($loader, array(
 ```
 
 
-##Your website template
+## Your website template
 
 Inside your website template that renders your HTML head, include the Favicons Markup template. Twig will it look up in the template path defined in “Setup Twig Template Loader” section above:
 
@@ -77,9 +77,9 @@ The *cache_bust* variable is optional. However, this will output a bunch of link
 **Please note** the two referenced files `manifest.json` and `browserconfig.xml`. Use an appropriate router like Slim framework to render these files according to your URL and theme color values, like shown in the “Routing” section below:
 
 
-##Routing browserconfig and manifest files
+## Routing browserconfig and manifest files
 
-###Simple Slim 3 example:
+### Simple Slim 3 example:
 
 ```php
 <?php
@@ -149,7 +149,7 @@ It seems that Safari will ignore any new color after a pinned tab icon has been 
 rm ~/Library/Safari/Template\ Icons/*
 ```
 
-#Development
+# Development
 
 Clone the repo, install dependencies
 
