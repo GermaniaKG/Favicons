@@ -9,8 +9,27 @@
 $ composer require germania-kg/favicons:^3.0
 ```
 
-## Where are the templates? The Favicons class
-The only purpose of this class is to make the Twig templates that come with this package somehow “installable” with Composer (sort of). Grab the path with the `getTemplatesPath` method. You will need it to setup your template loader. 
+
+
+## Setup Twig Template Loader
+
+Add the favicons template path `vendor/germania-kg/favicons/templates` (usually within Composer's package directory) to your Twig template loader:
+
+```php
+<?php
+// 1. Setup Twig Filesystem Loader, add Favicons' template dir as well
+$loader = new Twig_Loader_Filesystem( [
+    'path/to/your/templates',
+    'vendor/germania-kg/favicons/templates'
+]);
+
+// 2. Setup Twig, pass loader
+$twig = new Twig_Environment($loader, array(
+    // other Twig settings
+));
+```
+
+Just in case the template directory is located elsewhere, you can use a mock instance of the **Favicons class** and use its `getTemplatesPath` method:
 
 ```php
 <?php
@@ -18,28 +37,7 @@ $favicons = new Germania\Favicons\Favicons;
 echo $favicons->getTemplatesPath();
 
 // Usually outputs something like
-// "vendor/germania/favicons/templates"
-```
-
-
-## Setup Twig Template Loader
-
-Setup a `Favicons` object and add its template path to your Twig template loader:
-
-```php
-<?php
-// 1. Setup your Favicons object
-$favicons = new Germania\Favicons\Favicons;
-
-// 2. Setup Twig, add Favicons' template dir as well
-$loader = new Twig_Loader_Filesystem( [
-    'path/to/your/templates',
-    $favicons->getTemplatesPath()
-]);
-
-$twig = new Twig_Environment($loader, array(
-    // other Twig settings
-));
+// "vendor/germania-kg/favicons/templates"
 ```
 
 
