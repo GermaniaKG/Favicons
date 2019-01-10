@@ -4,7 +4,7 @@ namespace tests;
 use Germania\Favicons\Favicons;
 
 
-class FaviconsTest extends \PHPUnit_Framework_TestCase
+class FaviconsTest extends \PHPUnit\Framework\TestCase
 {
 
     public function testSimpleInstantiation() {
