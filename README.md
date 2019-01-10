@@ -92,6 +92,7 @@ $twig = new Twig_Environment( ... );
 // Setup favicon data
 $favicon_data = [
 	'app_name'    => 'My App',
+  'app_url'     => '/app', 
 	'base_url'    => '/path/to/icons',
 	'theme_color' => '#ffffff',
 	'icon_color'  => '#e21e79'
