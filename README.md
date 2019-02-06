@@ -3,12 +3,19 @@
 **Get your favicons in line with Twig and Slim3 Framework**
 
 
+[![Packagist](https://img.shields.io/packagist/v/germania-kg/favicons.svg?style=flat)](https://packagist.org/packages/germania-kg/favicons)
+[![PHP version](https://img.shields.io/packagist/php-v/germania-kg/favicons.svg)](https://packagist.org/packages/germania-kg/favicons)
+[![Build Status](https://img.shields.io/travis/GermaniaKG/Favicons.svg?label=Travis%20CI)](https://travis-ci.org/GermaniaKG/Favicons)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/GermaniaKG/Favicons/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/GermaniaKG/Favicons/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/GermaniaKG/Favicons/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/GermaniaKG/Favicons/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/GermaniaKG/Favicons/badges/build.png?b=master)](https://scrutinizer-ci.com/g/GermaniaKG/Favicons/build-status/master)
+
+
 ## Installation with Composer
 
 ```bash
-$ composer require germania-kg/favicons:^3.0
+$ composer require germania-kg/favicons
 ```
-
 
 
 ## Setup Twig Template Loader
@@ -148,22 +155,25 @@ It seems that Safari will ignore any new color after a pinned tab icon has been 
 rm ~/Library/Safari/Template\ Icons/*
 ```
 
-# Development
 
-Clone the repo, install dependencies
+## Development
 
 ```bash
-$ git clone git@github.com:GermaniaKG/Favicons.git germania-favicons
-$ cd germania-favicons
+$ git clone https://github.com/GermaniaKG/Favicons.git
+$ cd Favicons
 $ composer install
-$ cp phpunit.xml.dist phpunit.xml
 ```
 
-Customize `phpunit.xml` and run tests:
+## Unit tests
+
+Either copy `phpunit.xml.dist` to `phpunit.xml` and adapt to your needs, or leave as is. Run [PhpUnit](https://phpunit.de/) test or composer scripts like this:
 
 ```bash
-$ phpunit
+$ composer test
+# or
+$ vendor/bin/phpunit
 ```
+
 
 ###Todo: Make SlimRouterTest perfect
 There is a *SlimRouterTest* class, but it does not more than creating a *SlimRouter* instance, using concrete Slim and Twig_Environment constructor parameters. For I do not know how to check if the Slim routing actually works, this test will be content if SlimRouter instantiation does not throw any error.
