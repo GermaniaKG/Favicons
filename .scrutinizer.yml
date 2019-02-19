@@ -6,9 +6,6 @@ build:
         before:
             - rm composer.lock
 
-    services:
-        mysql: 5.7
-
     tests:
 
         override:
